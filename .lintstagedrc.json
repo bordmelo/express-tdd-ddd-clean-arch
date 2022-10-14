@@ -1,6 +1,6 @@
 {
   "*.ts": [
-    "yarn eslint 'src/**' --fix",
-    "git add"
+    "yarn eslint 'src/**'",
+    "yarn test:staged"
   ]
 }

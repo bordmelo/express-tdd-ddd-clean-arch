@@ -1,7 +1,8 @@
-import { Router } from 'express'
+import { RequestHandler, Router } from 'express'
+import { makeSignUpController } from '../factories/signup'
+import { adaptRoute } from '../adapters/express-route-adapter'
 
 export default (router: Router): void => {
-  router.post('/signup', (req, res) => {
-    res.json({ ok: true })
-  })
+  // TODO: find a way to remove the unknown cast
+  router.post('/signup', adaptRoute(makeSignUpController()) as unknown as RequestHandler)
 }
